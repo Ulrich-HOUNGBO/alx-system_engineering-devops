@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
-
+#his script displays "Holberton School" 10 times and says "Hi" during the 9th
 i=0
 while [ "$i" -le 10 ]
 do
 echo "Best School"
-if [ "$i" -eq 9 ];
-then 
+if [ "$i" -eq 9 ];then 
 echo "Hi"
 fi
 (( i++ ))
