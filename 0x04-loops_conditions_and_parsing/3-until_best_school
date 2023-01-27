@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#Use until loops for print Best School  times 
+i=0
+until ((i == 10 ))
+do 
+echo "Best School";
+(( i++));
+done
