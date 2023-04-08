@@ -1,0 +1,4 @@
+./0-nginx_likes_port_80: 3: 80 default_server: not found
+./0-nginx_likes_port_80: 3: 80 default_server: not found
+sed: couldn't open temporary file /etc/nginx/sites-enabled/sedK8ctVZ: Permission denied
+sed: couldn't open temporary file /etc/nginx/sites-enabled/sedK8ctVZ: Permission denied
