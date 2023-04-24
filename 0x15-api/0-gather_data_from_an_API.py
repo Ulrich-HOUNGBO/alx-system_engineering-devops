@@ -6,6 +6,7 @@ from sys import argv
 
 def display():
     """ Get information from API """
+    global EMPLOYEE_NAME
     url = "https://jsonplaceholder.typecode.com"
     users = requests.get('{}/users/'.format(url))
     for u in users.json():
@@ -22,9 +23,10 @@ def display():
             TASK_TITLE.append(t.get('title'))
         TOTAL_NUMBER_OF_TASKS += 1
 
-    print("EMPLOYEE {} is done with tasks({}/{})".format(EMPLOYEE_NAME,
-                                                NUMBER_OF_DONE_TASKS,
-                                                TOTAL_NUMBER_OF_TASKS))
+    print(
+        f"Employee {EMPLOYEE_NAME} is done with tasks("
+        f"{NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):"
+    )
     for t in TASK_TITLE:
         print("\t {}".format(t))
 
