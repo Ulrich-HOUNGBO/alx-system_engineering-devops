@@ -20,11 +20,11 @@ def display():
         if t.get('completed') is True:
             NUMBER_OF_DONE_TASKS += 1
             TASK_TITLE.append(t.get('title'))
-            TOTAL_NUMBER_OF_TASKS += 1
+        TOTAL_NUMBER_OF_TASKS += 1
 
     print("EMPLOYEE {} is done with tasks({}/{})".format(EMPLOYEE_NAME,
-                                                         NUMBER_OF_DONE_TASKS,
-                                                         TOTAL_NUMBER_OF_TASKS))
+                                                NUMBER_OF_DONE_TASKS,
+                                                TOTAL_NUMBER_OF_TASKS))
     for t in TASK_TITLE:
         print("\t {}".format(t))
 
