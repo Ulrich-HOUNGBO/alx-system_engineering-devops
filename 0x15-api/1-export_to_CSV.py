@@ -10,13 +10,13 @@ from sys import argv
 
 def to_csv():
     """return API data"""
-    users = requests.get("http://jsonplaceholder.typicode.com/users")
+    users = requests.get("https://jsonplaceholder.typicode.com/users")
     for u in users.json():
         if u.get('id') == int(argv[1]):
             USERNAME = (u.get('username'))
             break
     TASK_STATUS_TITLE = []
-    todos = requests.get("http://jsonplaceholder.typicode.com/todos")
+    todos = requests.get("https://jsonplaceholder.typicode.com/todos")
     for t in todos.json():
         if t.get('userId') == int(argv[1]):
             TASK_STATUS_TITLE.append((t.get('completed'), t.get('title')))
