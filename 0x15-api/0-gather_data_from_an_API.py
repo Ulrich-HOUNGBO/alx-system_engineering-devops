@@ -5,30 +5,27 @@ from sys import argv
 
 
 def display():
-    """ Get information from API """
-    global EMPLOYEE_NAME
-    url = "https://jsonplaceholder.typecode.com"
-    users = requests.get('{}/users/'.format(url))
+    """return API data"""
+    users = requests.get("https://jsonplaceholder.typicode.com/users")
     for u in users.json():
         if u.get('id') == int(argv[1]):
-            EMPLOYEE_NAME = u.get('name')
+            EMPLOYEE_NAME = (u.get('name'))
             break
+    TOTAL_NUM_OF_TASKS = 0
     NUMBER_OF_DONE_TASKS = 0
-    TOTAL_NUMBER_OF_TASKS = 0
     TASK_TITLE = []
-    todos = requests.get('{}/todos?userId={}'.format(url, argv[1]))
+    todos = requests.get("https://jsonplaceholder.typicode.com/todos")
     for t in todos.json():
-        if t.get('completed') is True:
-            NUMBER_OF_DONE_TASKS += 1
-            TASK_TITLE.append(t.get('title'))
-        TOTAL_NUMBER_OF_TASKS += 1
-
-    print(
-        f"Employee {EMPLOYEE_NAME} is done with tasks("
-        f"{NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):"
-    )
-    for t in TASK_TITLE:
-        print("\t {}".format(t))
+        if t.get('userId') == int(argv[1]):
+            TOTAL_NUM_OF_TASKS += 1
+            if t.get('completed') is True:
+                    NUMBER_OF_DONE_TASKS += 1
+                    TASK_TITLE.append(t.get('title'))
+    print("Employee {} is done with tasks({}/{}):".format(EMPLOYEE_NAME,
+                                                          NUMBER_OF_DONE_TASKS,
+                                                          TOTAL_NUM_OF_TASKS))
+    for task in TASK_TITLE:
+        print("\t {}".format(task))
 
 
 if __name__ == "__main__":
